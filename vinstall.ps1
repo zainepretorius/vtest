@@ -6,7 +6,7 @@ $VAGRANTPATH = "\DEV_VM"
 Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
 # Install Git VirtualBox and Vagrant
-choco install vcredist virtualbox vagrant cyg-get
+choco install vcredist2017 virtualbox vagrant cyg-get
 
 # Refresh environment variables
 refreshenv
