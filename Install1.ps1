@@ -22,12 +22,10 @@ choco install -y vcredist-all virtualbox vagrant cyg-get
 # Refresh environment variables
 refreshenv
 
-# Download Vagrant install script
-
 # Run the Vagrant script after restart
 Write-Host "Changing RunOnce script." -foregroundcolor "magenta"
 $RunOnceKey = "HKLM:\Software\Microsoft\Windows\CurrentVersion\RunOnce"
-set-itemproperty $RunOnceKey "NextRun" ('C:\Windows\System32\WindowsPowerShell\v1.0\Powershell.exe -executionPolicy Unrestricted -File ' + "C:\Users\test\test1.ps1")
+set-itemproperty $RunOnceKey "NextRun" ('C:\Windows\System32\WindowsPowerShell\v1.0\Powershell.exe -executionPolicy Unrestricted -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/zainepretorius/vtest/main/Install2.ps1'))"
 
 # Restart Computer
 $InputReboot = Read-Host "A Restart is required to continue, Do you wish to reboot now? [y/n]"
